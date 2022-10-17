@@ -1,0 +1,34 @@
+JavaScript Solution
+
+const pairSum = function(head) {
+    let stack = [];
+    let maxSum = 0;
+    let currentNode = head;
+    
+    while(currentNode){
+        stack.push(currentNode.val);
+        currentNode = currentNode.next;
+    }
+    
+    for (let i=0; i<stack.length; i++){
+        maxSum = Math.max(maxSum, stack[i] + stack[stack.length - 1 - i]);
+    }
+    return maxSum;
+};
+
+
+Python solution 
+
+def pairSum(self, head: Optional[ListNode]) -> int:
+    stack = []
+    max_sum = 0
+    current_node = head
+    
+    while current_node:
+        stack.append(current_node.val)
+        current_node = current_node.next
+    
+    for i in range(len(stack)//2):
+        max_sum = max(max_sum, stack[i] + stack[len(stack) - 1 - i])
+    
+    return max_sum
