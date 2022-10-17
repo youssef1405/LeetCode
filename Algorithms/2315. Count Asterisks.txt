@@ -1,0 +1,23 @@
+// Javascript solution
+
+const countAsterisks = function(s) {
+    let numOfBars = 0;
+    let starCounter = 0;
+    for (let i=0; i<s.length; i++){
+        if (s[i] === '|') numOfBars++;
+        if (numOfBars % 2 === 0 && s[i] === '*') starCounter++;
+    }
+    return starCounter;
+};
+
+# Python Solution 
+
+def countAsterisks(self, s: str) -> int:
+    num_of_bars = 0
+    star_counter = 0
+    for i in range(len(s)):
+        if s[i] == '|':
+            num_of_bars += 1
+        if num_of_bars % 2 == 0 and s[i] == '*':
+            star_counter += 1
+    return star_counter
