@@ -1,0 +1,33 @@
+// JS
+
+var climbStairs = function(n) {
+    let firstStep = 1;
+    let secondStep = 2;
+    if (n == 1) {
+        return 1;
+    }
+    for (let i =3; i<=n; i++){
+        let temp = secondStep;
+        secondStep += firstStep;
+        firstStep = temp;
+    }
+    return secondStep;
+};
+
+
+# Python
+
+def climbStairs(self, n: int) -> int:
+    
+    if n == 1:
+        return 1
+    
+    first_step = 1
+    second_step = 2
+    
+    for i in range(3, n+1):
+        temp = second_step
+        second_step += first_step
+        first_step = temp
+    return second_step
+    
