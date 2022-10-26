@@ -1,0 +1,39 @@
+# Python
+def plusOne(self, digits: List[int]) -> List[int]:
+    
+    borrow = 1
+    
+    for i in range(len(digits), 0, -1):
+        
+        digit = digits[i-1] + borrow
+        
+        borrow = digit // 10
+        
+        if borrow == 0:
+            digits[i-1] = digit
+            break
+        else:
+            digits[i-1] = digit % 10
+    
+    digits = [borrow] + digits
+    
+    position = 0
+    while digits[position] == 0:
+        position += 1
+    
+    return digits[position:]
+
+// JS
+
+const plusOne = function(digits) {
+    for(var i = digits.length - 1; i >= 0; i--){
+        digits[i]++; 
+        if(digits[i] > 9){
+            digits[i] = 0;
+        }else{
+            return digits;
+        }
+    }
+    digits.unshift(1);
+    return digits;
+    };
