@@ -1,0 +1,16 @@
+
+
+const maximumUnits = function(boxTypes, truckSize) {
+    // sort array by unit size in decsindeing order
+    const sortedBoxTypes = boxTypes.sort((a,b) => b[1] - a[1]);
+    let maxUnits = 0
+    let boxCount = 0
+    
+    for (let i=0; i<sortedBoxTypes.length; i++){
+        boxCount = Math.min(sortedBoxTypes[i][0], truckSize)
+        maxUnits += boxCount * sortedBoxTypes[i][1]
+        truckSize -= boxCount
+        if (truckSize === 0) break;
+    }
+    return maxUnits;
+};
