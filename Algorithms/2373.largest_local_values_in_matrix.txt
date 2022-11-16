@@ -1,0 +1,30 @@
+# python solution
+
+
+def largestLocal(self, grid: List[List[int]]) -> List[List[int]]:
+    answer = []
+    n = len(grid)
+    
+    for i in range(n-2):
+        row = []
+        
+        for j in range(n-2):
+            local = []
+            
+            local.append(grid[i][j])
+            local.append(grid[i][j+1])
+            local.append(grid[i][j+2])
+            
+            local.append(grid[i+1][j])
+            local.append(grid[i+1][j+1])
+            local.append(grid[i+1][j+2])
+            
+            local.append(grid[i+2][j])
+            local.append(grid[i+2][j+1])
+            local.append(grid[i+2][j+2])
+            
+            m = max(local)
+            row.append(m)
+            
+        answer.append(row)
+    return answer
