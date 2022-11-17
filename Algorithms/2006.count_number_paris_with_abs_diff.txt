@@ -8,3 +8,11 @@ def countKDifference(self, nums: List[int], k: int) -> int:
                 count += 1
     return count
             
+
+    #solution 2
+    d = defaultdict(int)
+    counter = 0
+    for num in nums:
+        counter += d[num-k] + d[num+k]
+        d[num] += 1
+    return counter
